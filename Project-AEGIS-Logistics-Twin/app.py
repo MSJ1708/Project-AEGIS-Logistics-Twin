@@ -29,17 +29,17 @@ if st.button("🚀 Run Digital Twin Simulation"):
     st.plotly_chart(fig, use_container_width=True)
 
     # Trigger Optimization when unfulfilled demand breaches threshold
-    if sc_obj.unfulfilled_demand > 0:
-        st.warning("⚠️ Disruption Detected: Unfulfilled Demand Exceeds Target Buffer. Executing MILP Solver...")
-        
-        # Inputs for Optimization Solver
-        demand = {"Zone_North": 40, "Zone_South": 35}
-        capacity = {"WH_1": sc_obj.warehouses["WH_1"], "WH_2": sc_obj.warehouses["WH_2"]}
-        costs = {"WH_1": {"Zone_North": 5, "Zone_South": 12}, 
-                 "WH_2": {"Zone_North": 10, "Zone_South": 4}}
-        
-        opt_results = optimize_supply_flow(demand, capacity, costs)
-        
-        st.success(f"Optimized Re-Routing Solution Calculated! Total Projected Cost: SAR {opt_results['total_cost']}")
-        clean_allocations = {f"{w} ➡️ {d}": qty for (w, d), qty in opt_results["allocations"].items()}
-st.json(clean_allocations)
+   if sc_obj.unfulfilled_demand > 0:
+    st.warning("⚠️ Disruption Detected: Unfulfilled Demand Exceeds Target Buffer. Executing MILP Solver...")
+
+    # Inputs for Optimization Solver
+    demand = {"Zone_North": 40, "Zone_South": 35}
+    capacity = {"WH_1": sc_obj.warehouses["WH_1"], "WH_2": sc_obj.warehouses["WH_2"]}
+    costs = {"WH_1": {"Zone_North": 5, "Zone_South": 12},
+             "WH_2": {"Zone_North": 10, "Zone_South": 4}}
+
+    opt_results = optimize_supply_flow(demand, capacity, costs)
+
+    st.success(f"Optimized Re-Routing Solution Calculated! Total Projected Cost: SAR {opt_results['total_cost']}")
+    clean_allocations = {f"{w} ➡️ {d}": qty for (w, d), qty in opt_results["allocations"].items()}
+    st.json(clean_allocations)
