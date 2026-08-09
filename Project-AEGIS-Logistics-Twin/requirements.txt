@@ -4,3 +4,6 @@ pulp
 pandas
 plotly
 fpdf2
+fasrapi
+uvicorn
+requests
