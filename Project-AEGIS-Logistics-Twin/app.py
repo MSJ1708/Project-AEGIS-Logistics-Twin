@@ -41,4 +41,5 @@ if st.button("🚀 Run Digital Twin Simulation"):
         opt_results = optimize_supply_flow(demand, capacity, costs)
         
         st.success(f"Optimized Re-Routing Solution Calculated! Total Projected Cost: SAR {opt_results['total_cost']}")
-        st.json(opt_results["allocations"])
+        clean_allocations = {f"{w} ➡️ {d}": qty for (w, d), qty in opt_results["allocations"].items()}
+st.json(clean_allocations)
