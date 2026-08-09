@@ -6,11 +6,33 @@ Project AEGIS is a discrete-event simulation and mathematical optimization engin
 
 ## 🚀 Key Features
 
-* **Stochastic Discrete-Event Simulation:** Powered by `SimPy`, modeling inventory drawdowns, stochastic inter-arrival order times, and supplier lead times.
-* **Mixed-Integer Linear Programming (MILP):** Solved via `PuLP`, dynamically re-routing shipments and re-allocating inventory upon shortage disruptions to minimize penalty and transportation costs.
-* **Interactive Control Dashboard:** Built with `Streamlit` and `Plotly` to display live inventory telemetry, KPI metrics, and solver optimization outputs.
+* **Stochastic Discrete-Event Simulation:** Powered by SimPy, modeling inventory drawdowns, stochastic inter-arrival order times, and supplier lead times.
+* **Mixed-Integer Linear Programming (MILP):** Solved via PuLP, dynamically re-routing shipments and re-allocating inventory upon shortage disruptions to minimize penalty and transportation costs.
+* **Interactive Control Dashboard:** Built with Streamlit and Plotly to display live inventory telemetry, KPI metrics, and solver optimization outputs.
 
 ---
 
 ## 🏗️ System Architecture
 
+> **[ SimPy Engine ]** ---> *(Disruption Detected)* ---> **[ PuLP MILP Solver ]**  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**|** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**|**  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**+-------------------> [ Streamlit Web UI ] <--------------------+**
+
+---
+
+## 🛠️ Tech Stack & Libraries
+
+* **Language:** Python
+* **Simulation Engine:** SimPy
+* **Optimization Solver:** PuLP (CBC Solver)
+* **Dashboard & Visuals:** Streamlit, Plotly, Pandas
+
+---
+
+## 💻 Quick Start & Setup
+
+1. Install dependencies:
+   `pip install -r requirements.txt`
+
+2. Launch the application:
+   `streamlit run app.py`
